@@ -10,56 +10,56 @@ leveled: 'true'
 
 Мы уже превратили наш основной HTML-сайт в базовый AMP-сайт. На нашем сайте осталась только одна ошибка проверки, и мы исправим ее с помощью компонента `<amp-img>` вместо `<img>` . Исправив эту последнюю ошибку проверки, мы узнаем, что такое компоненты AMP, почему некоторые теги HTML заменены или запрещены в AMP и как добавлять компоненты на наш сайт.
 
-After that, it’s time to add additional functionality to our website. To complete the initial version of our Chico’s Cheese Bike homepage, we are going to add some additional marketing content. The team has decided to add a YouTube video about making our cheese bikes, a carousel of images of our various cheese bike products, and some social media links that will help users share our site with their favorite social networks.
+После этого пришло время добавить дополнительный функционал на наш сайт. Чтобы завершить начальную версию нашей домашней страницы Chico's Cheese Bike, мы собираемся добавить дополнительный маркетинговый контент. Команда решила добавить видео на YouTube о создании наших сырных велосипедов, карусель изображений наших различных сырных велосипедов и ссылки на социальные сети, которые помогут пользователям делиться нашим сайтом со своими любимыми социальными сетями.
 
-It might seem daunting to add so many pieces to our site so quickly. We would need to create HTML, CSS, and JavaScript to fulfill many of the requirements for the features we want to add (such as how to change the active slide of the carousel). Then, we’d have to consider how to make the whole site performant.
+Может показаться утомительным добавить так много статей на наш сайт так быстро. Нам нужно создать HTML, CSS и JavaScript, чтобы выполнить многие требования к функциям, которые мы хотим добавить (например, как изменить активный слайд карусели). Затем нам нужно подумать, как сделать весь сайт работоспособным.
 
-But that’s the beauty of AMP. With AMP, we don’t have to worry about all those details! The AMP library authors have given us drop-in building blocks that provide us with these features and help take care of qualities like performance, accessibility, and security. These blocks are called **components**, and they are the key to making successful sites with AMP.
+Но это красота AMP. С AMP нам не нужно беспокоиться обо всех этих деталях! Авторы библиотеки AMP предоставили нам встроенные блоки, которые предоставляют нам эти функции и помогают заботиться о таких качествах, как производительность, доступность и безопасность. Эти блоки называются **компонентами** , и они являются ключом к созданию успешных сайтов с AMP.
 
-## What are Web Components?
+## Что такое веб-компоненты?
 
-Components are building blocks for the web. They represent the combination of structure (HTML), styling (CSS), and behavior (JavaScript) with an interface that makes it easy to use in your site and share with others. Components have:
+Компоненты являются строительными блоками для Интернета. Они представляют собой сочетание структуры (HTML), стиля (CSS) и поведения (JavaScript) с интерфейсом, который позволяет легко использовать его на вашем сайте и делиться с другими. Компоненты имеют:
 
-- A name (eg. `<amp-img>`) used as the tag name to identify the component.
+- Имя (например, `<amp-img>` ), используемое в качестве имени тега для идентификации компонента.
 
-- Custom attributes that change the behavior, style, or contents of a component (like `width`, `height`, `src`, and `attribution`).
+- Пользовательские атрибуты, которые изменяют поведение, стиль или содержимое компонента (например, `width` , `height` , `src` и `attribution` ).
 
-- Events that can capture user inputs to the component (`on` attribute).
+- События, которые могут захватывать пользовательский ввод для компонента ( `on` атрибуту).
 
-Optionally, components also have "children." Here, "children" refers to content (such as text, HTML tags, or other components) that is placed between the opening and closing tags of the component. The way these children are displayed on the page is different for each component.
+Необязательно, компоненты также имеют «дочерние элементы». Здесь «дети» относятся к контенту (например, тексту, тегам HTML или другим компонентам), который помещается между открывающим и закрывающим тегами компонента. То, как эти дочерние элементы отображаются на странице, отличается для каждого компонента.
 
-AMP’s component system helps you quickly build efficient and responsive features into your pages with minimal effort. The AMP library provides a comprehensive list of components for you to use. There are components for building forms and carousels, for integrating page analytics, for making XHR requests to servers, and much more. The possibilities are virtually endless. You can see the full list of available components at the the AMP Components reference [here](../../../documentation/components/index.html).
+Компонентная система AMP помогает вам быстро и эффективно встраивать эффективные и гибкие функции в свои страницы. Библиотека AMP предоставляет полный список компонентов, которые вы можете использовать. Существуют компоненты для построения форм и каруселей, для интеграции аналитики страниц, для отправки запросов XHR на серверы и многое другое. Возможности практически безграничны. Вы можете увидеть полный список доступных компонентов в справочнике AMP Components [здесь](../../../documentation/components/index.html) .
 
-As an example, here are three AMP components we could use in our site:
+Например, вот три компонента AMP, которые мы могли бы использовать на нашем сайте:
 
-AMP component | How it renders on our site
+Компонент AMP | Как это сделать на нашем сайте
 --- | ---
-`<amp-img src="IMG-URL" layout="responsive" width="640" height="480"></amp-img>` | {{ image('/static/img/courses/beginner/image14.png', 311, 550) }}
-`<amp-twitter width="486" height="657" layout="responsive" data-tweetid="ID"></amp-twitter>` | {{ image('/static/img/courses/beginner/image19.png', 311, 550) }}
-`<amp-youtube data-videoid="ID" layout="responsive" width="480" height="270"></amp-youtube>` | {{ image('/static/img/courses/beginner/image15.png', 311, 550) }}
+`<amp-img src="IMG-URL" layout="responsive" width="640" height="480"></amp-img>` | {{image ('/ static / img / courses / beginner / image14.png', 311, 550)}}
+`<amp-twitter width="486" height="657" layout="responsive" data-tweetid="ID"></amp-twitter>` | {{image ('/ static / img / courses / beginner / image19.png', 311, 550)}}
+`<amp-youtube data-videoid="ID" layout="responsive" width="480" height="270"></amp-youtube>` | {{image ('/ static / img / courses / beginner / image15.png', 311, 550)}}
 
-The goal when building out your AMP sites is to use AMP components whenever possible. Components maximize the performance benefits of building with AMP, because you don’t have to create something that already exists, thereby leveraging the work of the AMP library authors.
+Цель создания сайтов AMP - по возможности использовать компоненты AMP. Компоненты максимизируют производительность при использовании AMP, потому что вам не нужно создавать что-то, что уже существует, тем самым усиливая работу авторов библиотеки AMP.
 
-Almost all AMP components are run by at least some JavaScript. For some AMP components (like `<amp-img>`), the JavaScript is built directly into the AMP runtime script you included at the top of your page in the boilerplate. For most AMP components, you’ll need to include a separate script tag. And there’s a good reason for that: You only include the scripts you actually use in your site. Then, users only have to download the code necessary to browse your page. Less code to download means that your site will load faster!
+Почти все компоненты AMP работают по крайней мере с некоторым JavaScript. Для некоторых компонентов AMP (например, `<amp-img>` ) JavaScript встроен непосредственно в сценарий выполнения AMP, который вы включили в верхней части своей страницы в шаблоне. Для большинства компонентов AMP вам необходимо включить отдельный тег сценария. И для этого есть веская причина: вы включаете только те сценарии, которые фактически используете на своем сайте. Затем пользователям нужно только загрузить код, необходимый для просмотра вашей страницы. Меньше кода для загрузки означает, что ваш сайт будет загружаться быстрее!
 
-## Exercise 3: Our First Component - `<amp-img>`
+## Упражнение 3: наш первый компонент - `<amp-img>`
 
-Most HTML tags can be used directly in AMP, but certain tags, such as the `<img>` tag, must be replaced with equivalent AMP components. These components incorporate built-in best practices in accessibility, responsiveness, and performance.
+Большинство тегов HTML можно использовать непосредственно в AMP, но некоторые теги, такие как `<img>` , должны быть заменены эквивалентными компонентами AMP. Эти компоненты включают в себя встроенные передовые методики обеспечения доступности, скорости отклика и производительности.
 
-For example, in the case of `<amp-img>`, AMP requires us to specify the dimensions of the image. AMP needs to understand the layout of the page before assets (such as images) load. This improves the user experience when your page is loading, but before the image assets have been downloaded. When the images are downloaded, they can be inserted into the page without causing any existing content on the page to move around. This gives the AMP runtime room to decide when to load image assets based on the capabilities of the user’s device and internet connection.
+Например, в случае `<amp-img>` , AMP требует, чтобы мы указали размеры изображения. AMP должен понимать макет страницы перед загрузкой ресурсов (например, изображений). Это улучшает пользовательский опыт, когда ваша страница загружается, но до того, как ресурсы изображений были загружены. Когда изображения загружены, они могут быть вставлены в страницу, не вызывая перемещения существующего содержимого на странице. Это дает возможность времени выполнения AMP решать, когда загружать ресурсы изображений, основываясь на возможностях устройства пользователя и подключении к Интернету.
 
-[tip type="note"]
-**Note**: If you want to know more about AMP’s automatic optimizations, you can read about lazy-loading in AMP in the [appendix](appendix.md).
-[/tip]
+[tip type = "note"]
+**Примечание** . Если вы хотите узнать больше об автоматической оптимизации AMP, вы можете прочитать о отложенной загрузке в AMP в [приложении](appendix.md) .
+[/чаевые]
 
-To use the component and to resolve the `<amp-img>` validation error from earlier, replace the existing img tag in our page with the AMP equivalent.
-Hint: instead of `<img …>`, write `<amp-img …>` and give your image fixed dimensions. Give the image a `width` of `640` and a `height` of `480`.
+Чтобы использовать компонент и устранить ошибку проверки `<amp-img>` из предыдущей версии, замените существующий тег img на нашей странице эквивалентом AMP.
+Подсказка: вместо `<img …>` напишите `<amp-img …>` и присвойте своему изображению фиксированные размеры. Дайте изображению `width` `640` и `height` `480` .
 
-If necessary, reference the documentation for `<amp-img>` [here](../../../documentation/components/reference/amp-img.md).
+При необходимости обратитесь к документации по `<amp-img>` [здесь](../../../documentation/components/reference/amp-img.md) .
 
-### Solution
+### Решение
 
-The portion of the page containing the image should look like this:
+Часть страницы, содержащая изображение, должна выглядеть так:
 
 [sourcecode:html]
 {% raw %}<amp-img src="https://cdn.glitch.com/d7f46a57-0ca4-4cca-ab0f-69068dec6631%2Fricotta-racer.jpg?1540228217746" width="”640”" height="480">
@@ -69,193 +69,193 @@ The portion of the page containing the image should look like this:
 **Примечание** :: Проверьте расширение AMP Validator. Если вы успешно выполнили это упражнение, значок расширения должен быть зеленым. Если так, поздравляю! Ваша страница теперь действительна AMP!
 [/tip]
 
-## Arranging and Sizing Components
+## Расположение и определение размеров компонентов
 
-The next problem we need to troubleshoot has to do with how our page looks. You won’t notice it on a large desktop monitor, but it’s easy to see what’s wrong when we look at the site on a mobile device.
+Следующая проблема, которую нам нужно устранить, связана с тем, как выглядит наша страница. Вы не заметите это на большом настольном мониторе, но легко увидеть, что не так, когда мы смотрим на сайт на мобильном устройстве.
 
-{{ image('/static/img/courses/beginner/image23.png', 311, 550,  align='center third', caption='The image of the bicycle runs off the edge of the screen') }}
+{{image ('/ static / img / courses / beginner / image23.png', 311, 550, выровняйте = 'центр третий', заголовок = 'Изображение велосипеда убегает от края экрана')}}
 
-The image we added to the page doesn’t shrink to fit smaller screens; it just spills over the side. If we don’t specify a strategy for laying out the image and resizing it, it’s going to default to a fixed width and height as we specified in our code. Luckily, we can fix this issue using AMP's layout system.
+Изображение, которое мы добавили на страницу, не сжимается, чтобы соответствовать меньшим экранам; это просто льется на бок. Если мы не укажем стратегию размещения изображения и изменения его размера, по умолчанию будет использоваться фиксированная ширина и высота, как мы указали в нашем коде. К счастью, мы можем решить эту проблему, используя систему макетов AMP.
 
-We are going to give our image a `layout` of type `responsive` so that it automatically scales as the window is resized. The responsive layout causes the image to assume the dimensions of the parent container, all while respecting the original aspect ratio. If the parent container is only 320 pixels wide, the image will maintain its aspect ratio and be resized to 320x240 (instead of 640x480).
+Мы собираемся дать нашему изображению `layout` с типом `responsive` чтобы он автоматически масштабировался при изменении размера окна. Адаптивный макет заставляет изображение принимать размеры родительского контейнера, при этом соблюдая исходное соотношение сторон. Если родительский контейнер имеет ширину всего 320 пикселей, изображение сохранит свое соотношение сторон и будет изменено до 320x240 (вместо 640x480).
 
-Add the `layout` attribute to our image. If done correctly, it will looks something like this:
+Добавьте атрибут `layout` к нашему изображению. Если все сделано правильно, это будет выглядеть примерно так:
 
-[sourcecode:html]
-{% raw %}<amp-img src="https://cdn.glitch.com/d7f46a57-0ca4-4cca-ab0f-69068dec6631%2Fricotta-racer.jpg?1540228217746" layout="responsive" width="640" height="480">
-{% endraw %}[/sourcecode]</amp-img>
+[Исходный код: HTML]
+{% raw%} <amp-img src="https://cdn.glitch.com/d7f46a57-0ca4-4cca-ab0f-69068dec6631%2Fricotta-racer.jpg?1540228217746" layout="responsive" width="640" height="480">
+{% endraw%} [/ sourcecode]</amp-img>
 
-After you have made the change, take a look at your page. The image has the correct aspect ratio and responsively fills the width of the screen. Problem solved.
+После внесения изменений взгляните на свою страницу. Изображение имеет правильное соотношение сторон и отзывчиво заполняет ширину экрана. Проблема решена.
 
-{{ image('/static/img/courses/beginner/image26.png', 311, 550,  align='center third', caption='Image of bicycle with correct aspect ratio') }}
+{{image ('/ static / img / courses / beginner / image26.png', 311, 550, выровнять = 'центр третий', заголовок = 'Изображение велосипеда с правильным соотношением сторон')}}
 
-There are other layout types beyond responsive (at least 8 in total, in fact).
-For example, the `fixed` layout indicates that the component should never be resized from the height and width that are assigned to it. The `intrinsic` layout is similar to the `responsive` layout, except that it has the concept of an intrinsic height and width that cannot be exceeded by the component. Some layouts can only be applied to certain components. The documentation for each component will specify which layouts are valid for that component. You can read about the rest of the layout types [here](../../../documentation/guides-and-tutorials/learn/amp-html-layout/layouts_demonstrated.html).
+Существуют и другие типы макетов, помимо адаптивного (по крайней мере, 8).
+Например, `fixed` компоновка указывает, что размер компонента никогда не должен изменяться с высоты и ширины, которые ему назначены. `intrinsic` компоновка аналогична `responsive` компоновке, за исключением того, что она имеет концепцию внутренней высоты и ширины, которая не может быть превышена компонентом. Некоторые макеты могут быть применены только к определенным компонентам. В документации для каждого компонента будет указано, какие макеты являются действительными для этого компонента. Вы можете прочитать об остальных типах макетов [здесь](../../../documentation/guides-and-tutorials/learn/amp-html-layout/layouts_demonstrated.html) .
 
-If you want to become a successful AMP developer, learning how to use the layout system is critical. All of the layouts that AMP provides can be implemented using plain CSS, but often they can be complicated or have tricky edge cases that require deep knowledge to work around. AMP simplifies the process and exposes many of these layout options to be used on any element in your AMP page. Check out the
-[official documentation](../../../documentation/guides-and-tutorials/learn/amp-html-layout/index.md) for more information about the layout system.
+Если вы хотите стать успешным разработчиком AMP, крайне важно научиться пользоваться системой макетов. Все макеты, которые предоставляет AMP, могут быть реализованы с использованием простого CSS, но часто они могут быть сложными или иметь сложные крайние случаи, которые требуют глубоких знаний для обхода. AMP упрощает процесс и предоставляет многие из этих параметров макета для использования на любом элементе на странице AMP. Проверьте
+[Официальная документация](../../../documentation/guides-and-tutorials/learn/amp-html-layout/index.md) для получения дополнительной информации о системе макета.
 
-[tip type="tip"]
-**Tip**: Try selecting different mobile devices from the dropdown menu (see screenshot below) to see how the image adapts to different screen sizes. It’s good practice to test your site on different screen sizes. Browsers on actual mobile devices may behave differently, so when possible, test your webpage on real devices too.
+[tip type = "tip"]
+**Совет** : попробуйте выбрать другие мобильные устройства из выпадающего меню (см. Скриншот ниже), чтобы увидеть, как изображение адаптируется к разным размерам экрана. Рекомендуется тестировать сайт на экранах разных размеров. Браузеры на реальных мобильных устройствах могут вести себя по-разному, поэтому по возможности проверяйте свою веб-страницу на реальных устройствах.
 
-{{ image('/static/img/courses/beginner/image4.png', 297, 380,  align='center half', caption='Dropdown list of devices in Chrome') }}
-[/tip]
+{{image ('/ static / img / courses / beginner / image4.png', 297, 380, выровнять = 'центральная половина', заголовок = 'выпадающий список устройств в Chrome')}}
+[/чаевые]
 
-## Exercise 4: Embedding Video
+## Упражнение 4: встраивание видео
 
-Next, let’s embed a YouTube video in our document. Our marketing team at Chico’s Bikes released [this](https://www.youtube.com/watch?v=BlpMQ7fMCzA) video of one of our cheese bikes being constructed.
+Далее, давайте вставим видео YouTube в наш документ. Наша маркетинговая команда в Chico's Bikes выпустила [это](https://www.youtube.com/watch?v=BlpMQ7fMCzA) видео о том, как строится один из наших сырных велосипедов.
 
-Use the [`<amp-youtube>`](../../../documentation/components/reference/amp-youtube.md) documentation to embed this YouTube video under the `<amp-img>` component with the following settings:
+Используйте документацию [`<amp-youtube>`](../../../documentation/components/reference/amp-youtube.md) чтобы встроить это видео YouTube в компонент `<amp-img>` со следующими настройками:
 
-- Set the video id to `BlpMQ7fMCzA`.
+- Установите идентификатор видео в `BlpMQ7fMCzA` .
 
-- Make the video layout `responsive`.
+- Сделайте видео макет `responsive` .
 
-- **Note**: Don't forget to add the script to the `<head>`.
+- **Примечание** . Не забудьте добавить скрипт в `<head>` .
 
-Recommended style guidelines:
+Рекомендуемые рекомендации по стилю:
 
-- Set the element `width` to `480` and the `height` to `270`.
+- Установите `width` элемента `480` и `height` `270` .
 
-[tip type="read-on"]
-**Hint**: The documentation contains examples of how to use the `<amp-youtube>`component. For this exercise, it’s sufficient to copy one of those examples and adapt it to the requirements above.[/tip]
+[tip type = "read-on"]
+**Подсказка** : в документации приведены примеры использования компонента `<amp-youtube>` . Для этого упражнения достаточно скопировать один из этих примеров и адаптировать его к приведенным выше требованиям. [/ Tip]
 
-After you have made the changes, look at your page. You should now see the YouTube video:
+После того, как вы внесли изменения, посмотрите на свою страницу. Теперь вы должны увидеть видео на YouTube:
 
-{{ image('/static/img/courses/beginner/image18.png', 311, 550,  align='center third', caption='Image of the YouTube video in the page') }}
+{{image ('/ static / img / courses / beginner / image18.png', 311, 550, выровняйте = 'центр третий', заголовок = 'Изображение видео YouTube на странице')}}
 
-### Solution
+### Решение
 
-[sourcecode:html]
-{% raw %}<amp-youtube data-videoid="BlpMQ7fMCzA" layout="responsive" width="480" height="270">
-{% endraw %}[/sourcecode]</amp-youtube>
+[Исходный код: HTML]
+{% raw%} <amp-youtube data-videoid="BlpMQ7fMCzA" layout="responsive" width="480" height="270">
+{% endraw%} [/ sourcecode]</amp-youtube>
 
-Remember to include the `<amp-youtube>` script in the `<head>`:
+Не забудьте включить скрипт `<amp-youtube>` в `<head>` :
 
 ```
 <script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
 ```
 
-[tip type="note"]
-**Note**: AMP also includes support for other video players. Check out "[Integrating Videos in AMP an Overview](https://ampbyexample.com/advanced/integrating_videos_in_amp_an_overview/)" on AMP by Example.[/tip]
-[/filter]
-[filter level="advanced"]
-There is only one validation error remaining in our site, and we’ll fix it by using an `<amp-img>` **component** instead of an `<img>` tag.
+[tip type = "note"]
+**Примечание** : AMP также включает поддержку других видеоплееров. Проверьте " [Интеграция видео в AMP обзор](https://ampbyexample.com/advanced/integrating_videos_in_amp_an_overview/) " на AMP на примере. [/ Tip]
+[/фильтр]
+[уровень фильтра = "продвинутый"]
+На нашем сайте осталась только одна ошибка проверки, и мы исправим ее с помощью **компонента** `<amp-img>` вместо `<img>` .
 
-## What are Web Components?
+## Что такое веб-компоненты?
 
-Components are building blocks for the web. They combine structure (HTML), styling (CSS), and behavior (JavaScript) with a simple interface. Components have:
+Компоненты являются строительными блоками для Интернета. Они объединяют структуру (HTML), стилизацию (CSS) и поведение (JavaScript) с простым интерфейсом. Компоненты имеют:
 
-- A name (eg. `<amp-img>`) used as the tag name to identify the component.
+- Имя (например, `<amp-img>` ), используемое в качестве имени тега для идентификации компонента.
 
-- Custom attributes that change the behavior, style, or contents of a component (like `width`, `height`, `src`, and `attribution`).
+- Пользовательские атрибуты, которые изменяют поведение, стиль или содержимое компонента (например, `width` , `height` , `src` и `attribution` ).
 
-- Events that can capture user inputs to the component (`on` attribute).
+- События, которые могут захватывать пользовательский ввод для компонента ( `on` атрибуту).
 
-Components can have children, just as most other HTML tags can.
+У компонентов могут быть дочерние элементы, как и у большинства других HTML-тегов.
 
-AMP’s component system helps you quickly build efficient and responsive features into your pages with minimal effort. The AMP library provides components for building forms and carousels, for integrating page analytics, for making XHR requests to servers, and much more. You can see the full list of available components in the AMP Components reference [here]({{g.doc('/content/amp-dev/documentation/components/index.html', locale=doc.locale).url.path}}).
+Компонентная система AMP помогает вам быстро и эффективно встраивать эффективные и гибкие функции в свои страницы. Библиотека AMP предоставляет компоненты для построения форм и каруселей, для интеграции анализа страниц, для отправки XHR-запросов на серверы и многое другое. Вы можете увидеть полный список доступных компонентов в справочнике по компонентам AMP [здесь] ({{g.doc ('/ content / amp-dev / Documentation / components / index.html', locale = doc.locale) .url. путь}}).
 
-As an example, here are three AMP components we could use in our site:
+Например, вот три компонента AMP, которые мы могли бы использовать на нашем сайте:
 
-AMP component | How it renders on our site
+Компонент AMP | Как это сделать на нашем сайте
 --- | ---
-`<amp-img src="IMG-URL" layout="responsive" width="640" height="480"></amp-img>` | {{ image('/static/img/courses/beginner/image14.png', 311, 550) }}
-`<amp-twitter width="486" height="657" layout="responsive" data-tweetid="ID"></amp-twitter>` | {{ image('/static/img/courses/beginner/image19.png', 311, 550) }}
-`<amp-youtube data-videoid="ID" layout="responsive" width="480" height="270"></amp-youtube>` | {{ image('/static/img/courses/beginner/image15.png', 311, 550) }}
+`<amp-img src="IMG-URL" layout="responsive" width="640" height="480"></amp-img>` | {{image ('/ static / img / courses / beginner / image14.png', 311, 550)}}
+`<amp-twitter width="486" height="657" layout="responsive" data-tweetid="ID"></amp-twitter>` | {{image ('/ static / img / courses / beginner / image19.png', 311, 550)}}
+`<amp-youtube data-videoid="ID" layout="responsive" width="480" height="270"></amp-youtube>` | {{image ('/ static / img / courses / beginner / image15.png', 311, 550)}}
 
-The goal when building out your AMP sites is to use AMP components whenever possible. Components maximize the performance benefits of building with AMP, because you don’t have to create something that already exists, thereby leveraging the work of the AMP library authors.
+Цель создания сайтов AMP - по возможности использовать компоненты AMP. Компоненты максимизируют производительность при использовании AMP, потому что вам не нужно создавать что-то, что уже существует, тем самым усиливая работу авторов библиотеки AMP.
 
-Almost all AMP components are powered by a small bit of JavaScript. For some AMP components, like `<amp-img>`, this is included in the AMP runtime script. However, most AMP components need a separate script tag included in the head of the page. And there’s a good reason for that: You only include the scripts you actually use in your site. Then, users only have to download the code necessary to browse your page.
+Почти все компоненты AMP работают на небольшом кусочке JavaScript. Для некоторых компонентов AMP, таких как `<amp-img>` , это включено в сценарий выполнения AMP. Однако большинству компонентов AMP требуется отдельный тег сценария, включенный в заголовок страницы. И для этого есть веская причина: вы включаете только те сценарии, которые фактически используете на своем сайте. Затем пользователям нужно только загрузить код, необходимый для просмотра вашей страницы.
 
-## Exercise 3: Our First Component - `<amp-img>`
+## Упражнение 3: наш первый компонент - `<amp-img>`
 
-Most HTML tags can be used directly in AMP, but certain tags, such as the `<img>` tag, must be replaced with equivalent AMP components. These components incorporate built-in best practices in accessibility, responsiveness, and performance.
+Большинство тегов HTML можно использовать непосредственно в AMP, но некоторые теги, такие как `<img>` , должны быть заменены эквивалентными компонентами AMP. Эти компоненты включают в себя встроенные передовые методики обеспечения доступности, скорости отклика и производительности.
 
-For example, in the case of `<amp-img>`, AMP requires us to specify the dimensions of the image and close the tag with `</amp-img>`. AMP needs to understand the layout of the page before assets download. This improves the user experience when your page is loading, but before the image assets have been downloaded. When the images are downloaded, they can be inserted into the page without causing any existing content on the page to move around. This gives the AMP runtime room to decide when to load image assets based on the capabilities of the user’s device and internet connection.
+Например, в случае `<amp-img>` AMP требует от нас указать размеры изображения и закрыть тег с помощью `</amp-img>` . AMP необходимо понять макет страницы перед загрузкой ресурсов. Это улучшает пользовательский опыт, когда ваша страница загружается, но до того, как ресурсы изображений были загружены. Когда изображения загружены, они могут быть вставлены в страницу, не вызывая перемещения существующего содержимого на странице. Это дает возможность времени выполнения AMP решать, когда загружать ресурсы изображений, основываясь на возможностях устройства пользователя и подключении к Интернету.
 
-[tip type="note"]
-**Note**: If you want to know more about AMP’s automatic optimizations, you can read about lazy-loading in AMP in the [appendix]({{g.doc('/content/amp-dev/documentation/courses/beginning-course/appendix.md', locale=doc.locale).url.path}}).
-[/tip]
+[tip type = "note"]
+**Примечание** . Если вы хотите узнать больше об автоматической оптимизации AMP, вы можете прочитать о отложенной загрузке в AMP в [приложении] ({{g.doc ('/ content / amp-dev / Документация / курсы / Начало-курс / /). appendix.md ', locale = doc.locale) .url.path}}).
+[/чаевые]
 
-To use the component and to resolve the `<amp-img>` validation error, replace the existing img tag in our page with the AMP equivalent.
-Instead of `<img …>`, write `<amp-img …>` and give your image fixed width of 640 and a height of 480.
-If necessary, reference the documentation for `<amp-img>` [here]({{g.doc('/content/amp-dev/documentation/components/reference/amp-img.md', locale=doc.locale).url.path}}).
+Чтобы использовать компонент и устранить ошибку проверки `<amp-img>` , замените существующий тег img на нашей странице эквивалентом AMP.
+Вместо `<img …>` напишите `<amp-img …>` и присвойте своему изображению фиксированную ширину 640 и высоту 480.
+При необходимости обратитесь к документации для `<amp-img>` [здесь] ({{g.doc ('/ content / amp-dev / Documentation / components / reference / amp-img.md', locale = doc.locale). url.path}}).
 
-### Solution
+### Решение
 
-The portion of the page containing the image should look like this:
+Часть страницы, содержащая изображение, должна выглядеть так:
 
-[sourcecode:html]
-{% raw %}<amp-img src="https://cdn.glitch.com/d7f46a57-0ca4-4cca-ab0f-69068dec6631%2Fricotta-racer.jpg?1540228217746" width="”640”" height="480">
-{% endraw %}[/sourcecode]</amp-img>
+[Исходный код: HTML]
+{% raw%} <amp-img src="https://cdn.glitch.com/d7f46a57-0ca4-4cca-ab0f-69068dec6631%2Fricotta-racer.jpg?1540228217746" width="”640”" height="480">
+{% endraw%} [/ sourcecode]</amp-img>
 
-[tip type="note"]
-**Note**:: Check the AMP Validator extension. If you’ve completed this exercise successfully, the extension icon should be green. If so, congratulations! Your page is now valid AMP!
-[/tip]
+[tip type = "note"]
+**Примечание** :: Проверьте расширение AMP Validator. Если вы успешно выполнили это упражнение, значок расширения должен быть зеленым. Если так, поздравляю! Ваша страница теперь действительна AMP!
+[/чаевые]
 
-## Arranging and Sizing Components
+## Расположение и определение размеров компонентов
 
-The next problem we need to troubleshoot has to do with how our page looks. You won’t notice it on a large desktop monitor, but it’s easy to see what’s wrong when we look at the site on a mobile device.
+Следующая проблема, которую нам нужно устранить, связана с тем, как выглядит наша страница. Вы не заметите это на большом настольном мониторе, но легко увидеть, что не так, когда мы смотрим на сайт на мобильном устройстве.
 
-{{ image('/static/img/courses/beginner/image23.png', 311, 550,  align='center third', caption='The image of the bicycle runs off the edge of the screen') }}
+{{image ('/ static / img / courses / beginner / image23.png', 311, 550, выровняйте = 'центр третий', заголовок = 'Изображение велосипеда убегает от края экрана')}}
 
-The image we added to the page doesn’t shrink to fit smaller screens; it just spills over the side. If we don’t specify a strategy for laying out the image and resizing it, it’s going to default to the fixed width and height we specified in our code. Luckily, we can fix this issue using AMP's layout system.
+Изображение, которое мы добавили на страницу, не сжимается, чтобы соответствовать меньшим экранам; это просто льется на бок. Если мы не укажем стратегию размещения изображения и изменения его размера, по умолчанию будет использоваться фиксированная ширина и высота, которые мы указали в нашем коде. К счастью, мы можем решить эту проблему, используя систему макетов AMP.
 
-We are going to give our image a `layout` of type `responsive` so that it automatically scales as the window is resized. The responsive layout causes the image to assume the dimensions of the parent container, all while respecting the original aspect ratio. If the parent container is only 320 pixels wide, the image will maintain its aspect ratio and be resized to 320x240 (instead of 640x480).
+Мы собираемся дать нашему изображению `layout` с типом `responsive` чтобы он автоматически масштабировался при изменении размера окна. Адаптивный макет заставляет изображение принимать размеры родительского контейнера, при этом соблюдая исходное соотношение сторон. Если родительский контейнер имеет ширину всего 320 пикселей, изображение сохранит свое соотношение сторон и будет изменено до 320x240 (вместо 640x480).
 
-Add the `layout` attribute to our image with the `responsive` value:
+Добавьте атрибут `layout` к нашему изображению с `responsive` значением:
 
-[sourcecode:html]
-{% raw %}<amp-img src="https://cdn.glitch.com/d7f46a57-0ca4-4cca-ab0f-69068dec6631%2Fricotta-racer.jpg?1540228217746" layout="responsive" width="640" height="480">
-{% endraw %}[/sourcecode]</amp-img>
+[Исходный код: HTML]
+{% raw%} <amp-img src="https://cdn.glitch.com/d7f46a57-0ca4-4cca-ab0f-69068dec6631%2Fricotta-racer.jpg?1540228217746" layout="responsive" width="640" height="480">
+{% endraw%} [/ sourcecode]</amp-img>
 
-After you have made the change, take a look at your page. The image has the correct aspect ratio and responsively fills the width of the screen. Problem solved.
+После внесения изменений взгляните на свою страницу. Изображение имеет правильное соотношение сторон и отзывчиво заполняет ширину экрана. Проблема решена.
 
-{{ image('/static/img/courses/beginner/image26.png', 311, 550,  align='center third', caption='Image of bicycle with correct aspect ratio') }}
+{{image ('/ static / img / courses / beginner / image26.png', 311, 550, выровнять = 'центр третий', заголовок = 'Изображение велосипеда с правильным соотношением сторон')}}
 
-There are other layout types beyond responsive (at least 8 in total).
+Существуют и другие типы макетов, помимо адаптивного (не менее 8).
 
-For example, the `fixed` layout indicates that the component should never be resized from the height and width that are assigned to it. The `intrinsic` layout is similar to the `responsive` layout, except that it has the concept of an intrinsic height and width that cannot be exceeded by the component. Some layouts can only be applied to certain components. The documentation for each component will specify which layouts are valid for that component. You can read about the rest of the layout types [here]({{g.doc('/content/amp-dev/documentation/guides-and-tutorials/learn/amp-html-layout/layouts_demonstrated.html', locale=doc.locale).url.path}}).
+Например, `fixed` компоновка указывает, что размер компонента никогда не должен изменяться с высоты и ширины, которые ему назначены. `intrinsic` компоновка аналогична `responsive` компоновке, за исключением того, что она имеет концепцию внутренней высоты и ширины, которая не может быть превышена компонентом. Некоторые макеты могут быть применены только к определенным компонентам. В документации для каждого компонента будет указано, какие макеты являются действительными для этого компонента. Вы можете прочитать об остальных типах макетов [здесь] ({{g.doc ('/ content / amp-dev / document / guides-and-tutorials / learn / amp-html-layout / layouts_demonstrated.html', locale = doc.locale) .url.path}}).
 
-All of the layouts that AMP provides can be implemented using plain CSS, but often they can be complicated or have tricky edge cases that require deep knowledge to work around. AMP simplifies the process and exposes many of these layout options to be used on any element in your AMP page. Check out the [official documentation]({{g.doc('/content/amp-dev/documentation/guides-and-tutorials/learn/amp-html-layout/index.md', locale=doc.locale).url.path}}) for more information about the layout system.
+Все макеты, которые предоставляет AMP, могут быть реализованы с использованием простого CSS, но часто они могут быть сложными или иметь сложные крайние случаи, которые требуют глубоких знаний для обхода. AMP упрощает процесс и предоставляет многие из этих параметров макета для использования на любом элементе на странице AMP. Ознакомьтесь с [официальной документацией] ({{g.doc ('/ content / amp-dev / Documentation / guides-and-tutorials / learn / amp-html-layout / index.md', locale = doc.locale). url.path}}) для получения дополнительной информации о системе макетов.
 
-[tip type="tip"]
-**Tip**: Try selecting different mobile devices from the dropdown menu (see screenshot below) to see how the image adapts to different screen sizes. It’s good practice to test your site on different screen sizes. Browsers on actual mobile devices may behave differently, so when possible, test your webpage on real devices too.
+[tip type = "tip"]
+**Совет** : попробуйте выбрать другие мобильные устройства из выпадающего меню (см. Скриншот ниже), чтобы увидеть, как изображение адаптируется к разным размерам экрана. Рекомендуется тестировать сайт на экранах разных размеров. Браузеры на реальных мобильных устройствах могут вести себя по-разному, поэтому по возможности проверяйте свою веб-страницу на реальных устройствах.
 
-{{ image('/static/img/courses/beginner/image4.png', 297, 380,  align='center half', caption='Dropdown list of devices in Chrome') }}
-[/tip]
+{{image ('/ static / img / courses / beginner / image4.png', 297, 380, выровнять = 'центральная половина', заголовок = 'выпадающий список устройств в Chrome')}}
+[/чаевые]
 
-## Exercise 4: Embedding Video
+## Упражнение 4: встраивание видео
 
-Next, let’s embed a YouTube video in our document. Our marketing team at Chico’s Bikes released [this](https://www.youtube.com/watch?v=BlpMQ7fMCzA) video of one of our cheese bikes being constructed.
+Далее, давайте вставим видео YouTube в наш документ. Наша маркетинговая команда в Chico's Bikes выпустила [это](https://www.youtube.com/watch?v=BlpMQ7fMCzA) видео о том, как строится один из наших сырных велосипедов.
 
-Use the [`<amp-youtube>`]({{g.doc('/content/amp-dev/documentation/components/reference/amp-youtube.md', locale=doc.locale).url.path}}) documentation to embed this YouTube video under the `<amp-img>` component with the following settings:
+Используйте [ `<amp-youtube>` ] ({{g.doc ('/ content / amp-dev / Documentation / components / reference / amp-youtube.md', locale = doc.locale) .url.path}}) документация для встраивания этого видео на YouTube в компонент `<amp-img>` со следующими настройками:
 
-- Set the video id to `BlpMQ7fMCzA`.
+- Установите идентификатор видео в `BlpMQ7fMCzA` .
 
-- Make the video layout `responsive`.
+- Сделайте видео макет `responsive` .
 
-- **Note**: Don't forget to add the script to the `<head>`.
+- **Примечание** . Не забудьте добавить скрипт в `<head>` .
 
-Recommended style guidelines:
+Рекомендуемые рекомендации по стилю:
 
-- Set the element `width` to `480` and the `height` to `270`.
+- Установите `width` элемента `480` и `height` `270` .
 
-[tip type="read-on"]
-**Hint**: The documentation contains examples of how to use the `<amp-youtube>`component. For this exercise, it’s sufficient to copy one of those examples and adapt it to the requirements above.[/tip]
+[tip type = "read-on"]
+**Подсказка** : в документации приведены примеры использования компонента `<amp-youtube>` . Для этого упражнения достаточно скопировать один из этих примеров и адаптировать его к приведенным выше требованиям. [/ Tip]
 
-After you have made the changes, look at your page. You should now see the YouTube video:
+После того, как вы внесли изменения, посмотрите на свою страницу. Теперь вы должны увидеть видео на YouTube:
 
-{{ image('/static/img/courses/beginner/image18.png', 311, 550,  align='center third', caption='Image of the YouTube video in the page') }}
+{{image ('/ static / img / courses / beginner / image18.png', 311, 550, выровняйте = 'центр третий', заголовок = 'Изображение видео YouTube на странице')}}
 
-### Solution
+### Решение
 
-[sourcecode:html]
-{% raw %}<amp-youtube data-videoid="BlpMQ7fMCzA" layout="responsive" width="480" height="270">
-{% endraw %}[/sourcecode]</amp-youtube>
+[Исходный код: HTML]
+{% raw%} <amp-youtube data-videoid="BlpMQ7fMCzA" layout="responsive" width="480" height="270">
+{% endraw%} [/ sourcecode]</amp-youtube>
 
-Remember to include the `<amp-youtube>` script in the `<head>`:
+Не забудьте включить скрипт `<amp-youtube>` в `<head>` :
 
 ```
 <script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
